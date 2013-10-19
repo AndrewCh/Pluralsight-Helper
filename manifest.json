@@ -1,0 +1,30 @@
+{
+	"manifest_version":2,
+
+	"name":"Pluralsight Helper2",
+	"description":"Adds sorting functionality to the Pluralsight website.",
+	"version":"1.8",
+
+	"page_action": {
+		"default_icon":"icon.png",
+		"default_title":"Pluralsight Helper2",
+		"default_popup":"popup.html"
+	},
+	
+	"background":{
+		"scripts": ["eventPage.js"],
+		"persistent":false
+	},
+	
+	"content_scripts":[
+		{
+			"matches":["http://pluralsight.com/training/Courses/*", "http://pluralsight.com/training/Authors/Details/*"],
+			"js":["pluralsight_cs.js", "jquery-1.10.2.js", "jquery.dataTables.js"]
+		}
+	],
+	
+	"permissions":[
+		"tabs",
+		"http://pluralsight.com/*"
+	]
+}
